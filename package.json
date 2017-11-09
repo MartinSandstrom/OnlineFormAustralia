@@ -20,6 +20,7 @@
     },
     "homepage": "https://github.com/MartinSandstrom/OnlineFormAustralia#readme",
     "dependencies": {
+        "axios": "^0.17.0",
         "babel-core": "^6.2.1",
         "babel-loader": "^7.1.2",
         "babel-plugin-transform-class-properties": "^6.24.1",

@@ -11,7 +11,6 @@ export default class AustralianForm extends React.Component {
                 zipCode: ''
             }
         };
-        console.log(DataService.getData());
     }
 
     handleInputChange = (e) => {
@@ -28,12 +27,10 @@ export default class AustralianForm extends React.Component {
         let zipCode = this.state.inputs.zipCode;
         //DO something awesome :)
         //DO some validation maybe?
-        DataService.getData(streetName, suburb, zipCode).then((response) => {
-            if(response.err) {
-                console.log('Something went wrong:', err);
-            }
-            //Life is good
-        });
+
+        DataService.getData().then((response) => {
+            console.log(response.data);
+        })
     }
 
     render() {
@@ -55,6 +52,6 @@ export default class AustralianForm extends React.Component {
                     <button type="submit" className="btn btn-primary">Submit</button>
                 </form>
             </div>
-        )
+        );
     }
 }
