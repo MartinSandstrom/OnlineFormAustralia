@@ -1,15 +1,20 @@
 import React from 'react';
 import {DataService} from '../dataService.js';
+import {AddressViewer} from './AddressViewer.jsx'
+import {validation} from '../validation.js'
 
 export default class AustralianForm extends React.Component {
     constructor() {
         super();
         this.state = {
             inputs: {
-                street: '',
-                subutb: '',
-                zipCode: ''
-            }
+                state: 'VIC',
+                postcode: 8002,
+                suburb: 'EAST MELBOURNE'
+            },
+            address: {},
+            errorMessage: '',
+            isLoading: false
         };
     }
 
@@ -17,40 +22,96 @@ export default class AustralianForm extends React.Component {
         let inputs = this.state.inputs;
         inputs[e.target.name] = e.target.value;
         this.setState({inputs});
-
     }
 
-    validateAddress = (e) => {
-        e.preventDefault();
-        let streetName = this.state.inputs.street;
-        let suburb = this.state.inputs.suburb;
-        let zipCode = this.state.inputs.zipCode;
-        //DO something awesome :)
-        //DO some validation maybe?
+    isValid = () => {
+        return validation.postcode(this.state.inputs.postcode)
+            && validation.notEmpty(this.state.inputs.suburb)
+            && validation.notEmpty(this.state.inputs.state);
+    }
 
-        DataService.getData().then((response) => {
-            console.log(response.data);
-        })
+    findAddress = (e) => {
+        e.preventDefault();
+        if (!this.isValid()) {
+            this.setState({errorMessage: 'Invalid inputs'});
+            return;
+        }
+        this.resetForNewSearch();
+        this.setState({isLoading: true})
+
+        let query = this.state.inputs.suburb + ' ' + this.state.inputs.postcode;
+        let state = this.state.inputs.state;
+        DataService.getData(query, state).then(this.correctResults).catch(this.handleError);
+    }
+
+    resetForNewSearch = () => this.setState({address: {}, errorMessage: ''});
+
+    correctResults = (response) => {
+        this.setState({isLoading: false});
+        if (!response.data.localities) {
+            this.setState({errorMessage: 'Could not find the address...'});
+            return;
+        }
+        /*
+            Can there be more then on answer? Are everything required?
+            let locality = response.data.localities.locality;
+            let postcode = this.state.inputs.postcode;
+            let suburb = this.state.inputs.suburb;
+            let address = locality.find((address) => address.postcode === postcode && address.location.toLowerCase() === suburb.toLowerCase());
+        */
+        let address = response.data.localities.locality;
+        if (address) {
+            this.setState({address})
+        } else {
+            this.setState({errorMessage: 'Could not find the address...'});
+        }
+    }
+
+    handleError = (error) => {
+        this.setState({isLoading: false});
+        console.log('Something went wrong :/ ', error);
+    }
+
+    renderErrorWell = () => {
+        let errorMessage = this.state.errorMessage;
+        if (errorMessage) {
+            return (
+                <div className="alert alert-danger" role="alert">
+                    {errorMessage}
+                </div>
+            );
+        }
+    }
+
+    renderLoader = () => {
+        if (this.state.isLoading) {
+            return (
+                <img src="/content/loader.gif" className="loader-image"></img>
+            )
+        }
     }
 
     render() {
         return (
             <div className="container">
-                <form className="main-form mx-auto" onSubmit={this.validateAddress}>
-                    <div className="form-group">
-                        <label htmlFor="StreetName">Street Name</label>
-                        <input type="text" name="street" value={this.state.inputs.street} onChange={this.handleInputChange} className="form-control" id="StreetName" placeholder="63 Fletcher street"/>
-                    </div>
+                <form className="main-form mx-auto" onSubmit={this.findAddress}>
                     <div className="form-group">
                         <label htmlFor="Suburb">Suburb</label>
-                        <input type="text" name="suburb" value={this.state.inputs.suburb} onChange={this.handleInputChange} className="form-control" id="Suburb" placeholder="Tamarama"/>
+                        <input type="text" name="suburb" value={this.state.inputs.suburb} onChange={this.handleInputChange} className="form-control" id="Suburb"/>
                     </div>
                     <div className="form-group">
-                        <label htmlFor="ZipCode">Zip code</label>
-                        <input type="number" name="zipCode" value={this.state.inputs.zipCode} onChange={this.handleInputChange} className="form-control" id="ZipCode" placeholder="2026"/>
+                        <label htmlFor="Postcode">Postcode</label>
+                        <input type="number" name="postcode" value={this.state.inputs.postcode} onChange={this.handleInputChange} className="form-control" id="Postcode"/>
                     </div>
+                    <div className="form-group">
+                        <label htmlFor="State">State</label>
+                        <input type="text" name="state" value={this.state.inputs.state} onChange={this.handleInputChange} className="form-control" id="State"/>
+                    </div>
+                    {this.renderErrorWell()}
                     <button type="submit" className="btn btn-primary">Submit</button>
+                    {this.renderLoader()}
                 </form>
+                <AddressViewer address={this.state.address}></AddressViewer>
             </div>
         );
     }

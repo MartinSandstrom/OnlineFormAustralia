@@ -5,3 +5,11 @@ body {
 .main-form {
     max-width: 500px;
 }
+
+.hidden {
+    display: none;
+}
+
+.loader-image {
+    padding-left: 10px;
+}

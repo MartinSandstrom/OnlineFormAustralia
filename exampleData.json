@@ -1,0 +1,120 @@
+{
+    "localities": {
+        "locality": [
+            {
+                "category": "Post Office Boxes",
+                "id": 617,
+                "location": "NORTH SYDNEY",
+                "postcode": 2055,
+                "state": "NSW"
+            },
+            {
+                "category": "Post Office Boxes",
+                "id": 620,
+                "location": "NORTH SYDNEY",
+                "postcode": 2059,
+                "state": "NSW"
+            },
+            {
+                "category": "Delivery Area",
+                "id": 625,
+                "latitude": -33.838265,
+                "location": "NORTH SYDNEY",
+                "longitude": 151.206481,
+                "postcode": 2060,
+                "state": "NSW"
+            },
+            {
+                "category": "Delivery Area",
+                "id": 626,
+                "latitude": -32.8310013,
+                "location": "NORTH SYDNEY SHOPPINGWORLD",
+                "longitude": 150.1390075,
+                "postcode": 2060,
+                "state": "NSW"
+            },
+            {
+                "category": "Delivery Area",
+                "id": 504,
+                "latitude": -33.867139,
+                "location": "SYDNEY",
+                "longitude": 151.207114,
+                "postcode": 2000,
+                "state": "NSW"
+            },
+            {
+                "category": "Post Office Boxes",
+                "id": 507,
+                "location": "SYDNEY",
+                "postcode": 2001,
+                "state": "NSW"
+            },
+            {
+                "category": "Delivery Area",
+                "id": 536,
+                "latitude": -33.933077,
+                "location": "SYDNEY DOMESTIC AIRPORT",
+                "longitude": 151.177549,
+                "postcode": 2020,
+                "state": "NSW"
+            },
+            {
+                "category": "Delivery Area",
+                "id": 537,
+                "latitude": -33.935723,
+                "location": "SYDNEY INTERNATIONAL AIRPORT",
+                "longitude": 151.166246,
+                "postcode": 2020,
+                "state": "NSW"
+            },
+            {
+                "category": "Post Office Boxes",
+                "id": 815,
+                "location": "SYDNEY MARKETS",
+                "postcode": 2129,
+                "state": "NSW"
+            },
+            {
+                "category": "Delivery Area",
+                "id": 812,
+                "latitude": -33.847896,
+                "location": "SYDNEY OLYMPIC PARK",
+                "longitude": 151.066669,
+                "postcode": 2127,
+                "state": "NSW"
+            },
+            {
+                "category": "Post Office Boxes",
+                "id": 427,
+                "location": "SYDNEY SOUTH",
+                "postcode": 1235,
+                "state": "NSW"
+            },
+            {
+                "category": "Delivery Area",
+                "id": 505,
+                "latitude": -33.8743125,
+                "location": "SYDNEY SOUTH",
+                "longitude": 151.205873,
+                "postcode": 2000,
+                "state": "NSW"
+            },
+            {
+                "category": "Delivery Area",
+                "id": 511,
+                "latitude": -33.8877655,
+                "location": "THE UNIVERSITY OF SYDNEY",
+                "longitude": 151.1883894,
+                "postcode": 2006,
+                "state": "NSW"
+            },
+            {
+                "category": "Post Office Boxes",
+                "id": 448,
+                "location": "UNSW SYDNEY",
+                "postcode": 1466,
+                "state": "NSW"
+            }
+        ]
+    }
+}
