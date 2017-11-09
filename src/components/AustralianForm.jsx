@@ -84,7 +84,7 @@ export default class AustralianForm extends React.Component {
     renderLoader = () => {
         if (this.state.isLoading) {
             return (
-                <img src="/content/loader.gif" className="loader-image"></img>
+                <img src="/loader.gif" className="loader-image"></img>
             )
         }
     }

@@ -1,9 +1,26 @@
 # OnlineFormAustralia
 
+## Usage
 
+### Install
 
+```console
+    $ npm install
+```
 
+### Build js in dev mode and start dev server
 
-### npm install
+```console
+    $ npm start
+```
+### Start webpack in dev mode and watch files
 
-### npm install nodemon -g
+```console
+    $ npm run dev
+```
+
+### Deploy to https://martinsandstrom.github.io/OnlineFormAustralia/
+
+```console
+    $ npm run deploy
+```
