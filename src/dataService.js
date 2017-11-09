@@ -4,7 +4,7 @@ axios.defaults.headers.common['Auth-Key'] = 'ad52e4b6-5e22-42ba-bdbb-1882b9dacc7
 
     Proxy?
     Do it from the server?
-    JsonP?
+    JsonP? Security risk? 
 
 */
 const proxyurl = "https://cors-anywhere.herokuapp.com/";

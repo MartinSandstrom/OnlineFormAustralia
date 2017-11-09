@@ -67,6 +67,7 @@ export default class AustralianForm extends React.Component {
 
     handleError = (error) => {
         this.setState({isLoading: false});
+        //TODO add some error handling toaster?
         console.log('Something went wrong :/ ', error);
     }
 
