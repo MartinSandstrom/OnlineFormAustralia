@@ -1,0 +1,15 @@
+body {
+    margin-top: 80px;
+}
+
+.main-form {
+    max-width: 500px;
+}
+
+.hidden {
+    display: none;
+}
+
+.loader-image {
+    padding-left: 10px;
+}
