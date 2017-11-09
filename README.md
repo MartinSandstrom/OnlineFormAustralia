@@ -22,5 +22,6 @@
 ### Deploy to https://martinsandstrom.github.io/OnlineFormAustralia/
 
 ```console
+    $ npm install -g gh-pages
     $ npm run deploy
 ```
