@@ -25,9 +25,7 @@ export default class AustralianForm extends React.Component {
     }
 
     isValid = () => {
-        return validation.postcode(this.state.inputs.postcode)
-            && validation.notEmpty(this.state.inputs.suburb)
-            && validation.notEmpty(this.state.inputs.state);
+        return validation.postcode(this.state.inputs.postcode) && validation.notEmpty(this.state.inputs.suburb) && validation.notEmpty(this.state.inputs.state);
     }
 
     findAddress = (e) => {
@@ -94,24 +92,26 @@ export default class AustralianForm extends React.Component {
     render() {
         return (
             <div className="container">
-                <form className="main-form mx-auto" onSubmit={this.findAddress}>
-                    <div className="form-group">
-                        <label htmlFor="Suburb">Suburb</label>
-                        <input type="text" name="suburb" value={this.state.inputs.suburb} onChange={this.handleInputChange} className="form-control" id="Suburb"/>
-                    </div>
-                    <div className="form-group">
-                        <label htmlFor="Postcode">Postcode</label>
-                        <input type="number" name="postcode" value={this.state.inputs.postcode} onChange={this.handleInputChange} className="form-control" id="Postcode"/>
-                    </div>
-                    <div className="form-group">
-                        <label htmlFor="State">State</label>
-                        <input type="text" name="state" value={this.state.inputs.state} onChange={this.handleInputChange} className="form-control" id="State"/>
-                    </div>
-                    {this.renderErrorWell()}
-                    <button type="submit" className="btn btn-primary">Submit</button>
-                    {this.renderLoader()}
-                </form>
-                <AddressViewer address={this.state.address}></AddressViewer>
+                <div className="row">
+                    <form className="main-form mx-auto col-md-6 " onSubmit={this.findAddress}>
+                        <div className="form-group">
+                            <label htmlFor="Suburb">Suburb</label>
+                            <input type="text" name="suburb" value={this.state.inputs.suburb} onChange={this.handleInputChange} className="form-control" id="Suburb"/>
+                        </div>
+                        <div className="form-group">
+                            <label htmlFor="Postcode">Postcode</label>
+                            <input type="number" name="postcode" value={this.state.inputs.postcode} onChange={this.handleInputChange} className="form-control" id="Postcode"/>
+                        </div>
+                        <div className="form-group">
+                            <label htmlFor="State">State</label>
+                            <input type="text" name="state" value={this.state.inputs.state} onChange={this.handleInputChange} className="form-control" id="State"/>
+                        </div>
+                        {this.renderErrorWell()}
+                        <button type="submit" className="btn btn-primary">Validate</button>
+                        {this.renderLoader()}
+                    </form>
+                    <AddressViewer address={this.state.address}></AddressViewer>
+                </div>
             </div>
         );
     }

@@ -1,4 +1,4 @@
-let fourDigitReg = /(\d{4})/;
+let fourDigitReg = /^\d{4}$/;
 
 export const validation = {
     postcode(input) {
