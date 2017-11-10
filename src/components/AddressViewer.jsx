@@ -3,7 +3,7 @@ import React from 'react';
 export const AddressViewer = props => {
     return (
         <div className="col-md-6">
-            <div className={`alert alert-success ${props.address.id ? '' : 'hidden'}`}>
+            <div className={`alert alert-success ${props.address.id ? '' : 'hidden'}`} role="alert">
                 <h2>The address was found:</h2>
                 <div>
                     <p>

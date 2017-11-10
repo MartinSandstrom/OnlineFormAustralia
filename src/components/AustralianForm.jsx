@@ -24,9 +24,9 @@ export default class AustralianForm extends React.Component {
         this.setState({inputs});
     }
 
-    isValid = () => {
-        return validation.postcode(this.state.inputs.postcode) && validation.notEmpty(this.state.inputs.suburb) && validation.notEmpty(this.state.inputs.state);
-    }
+    isValid = () => validation.postcode(this.state.inputs.postcode)
+                 && validation.notEmpty(this.state.inputs.suburb)
+                 && validation.notEmpty(this.state.inputs.state);
 
     findAddress = (e) => {
         e.preventDefault();
@@ -35,7 +35,7 @@ export default class AustralianForm extends React.Component {
             return;
         }
         this.resetForNewSearch();
-        this.setState({isLoading: true})
+        this.setState({isLoading: true});
 
         let query = this.state.inputs.suburb + ' ' + this.state.inputs.postcode;
         let state = this.state.inputs.state;
@@ -65,13 +65,9 @@ export default class AustralianForm extends React.Component {
         }
     }
 
-    handleError = (error) => {
-        this.setState({isLoading: false});
-        //TODO add some error handling toaster?
-        console.log('Something went wrong :/ ', error);
-    }
+    handleError = (error) => this.setState({isLoading: false, errorMessage: 'Something unexpected happened: ' + error});
 
-    renderErrorWell = () => {
+    renderErrorAlert = () => {
         let errorMessage = this.state.errorMessage;
         if (errorMessage) {
             return (
@@ -107,7 +103,7 @@ export default class AustralianForm extends React.Component {
                             <label htmlFor="State">State</label>
                             <input type="text" name="state" value={this.state.inputs.state} onChange={this.handleInputChange} className="form-control" id="State"/>
                         </div>
-                        {this.renderErrorWell()}
+                        {this.renderErrorAlert()}
                         <button type="submit" className="btn btn-primary">Validate</button>
                         {this.renderLoader()}
                     </form>
