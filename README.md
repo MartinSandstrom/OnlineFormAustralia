@@ -28,10 +28,11 @@
 
 ### Selenium tests
 
-#### install mocha
+#### install mocha and run
 
 ```console
     $ npm install mocha -g
+    $ npm run selenium
 ```
 
 

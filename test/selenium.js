@@ -1,18 +1,18 @@
-var assert = require('assert');
 var webdriver = require('selenium-webdriver');
 var test = require('selenium-webdriver/testing');
 const until = webdriver.until;
 var By = webdriver.By;
-const timeOut = 30000;
+const TIMEOUT = 30000;
+const URL = 'localhost:9000';
 
 
 test.describe('Australian online form', function() {
-    this.timeout(timeOut);
+    this.timeout(TIMEOUT);
     test.it('Should show the address for a correctly entered address', () => {
         var driver = new webdriver.Builder()
             .forBrowser('chrome')
             .build();
-        driver.get('localhost:9000');
+        driver.get(URL);
         driver.findElement(By.name('suburb')).sendKeys('Tamarama');
         driver.findElement(By.name('postcode')).sendKeys('2026');
         driver.findElement(By.name('state')).sendKeys('NSW');
@@ -26,7 +26,7 @@ test.describe('Australian online form', function() {
         var driver = new webdriver.Builder()
             .forBrowser('chrome')
             .build();
-        driver.get('localhost:9000');
+        driver.get(URL);
         driver.findElement(By.name('suburb')).sendKeys('');
         driver.findElement(By.name('postcode')).sendKeys('');
         driver.findElement(By.name('state')).sendKeys('');
@@ -40,7 +40,7 @@ test.describe('Australian online form', function() {
         var driver = new webdriver.Builder()
             .forBrowser('chrome')
             .build();
-        driver.get('localhost:9000');
+        driver.get(URL);
         driver.findElement(By.name('suburb')).sendKeys('Tamarama');
         driver.findElement(By.name('postcode')).sendKeys('2026');
         driver.findElement(By.name('state')).sendKeys('VIC');
@@ -54,7 +54,7 @@ test.describe('Australian online form', function() {
         var driver = new webdriver.Builder()
             .forBrowser('chrome')
             .build();
-        driver.get('localhost:9000');
+        driver.get(URL);
         driver.findElement(By.name('suburb')).sendKeys('Ultimo');
         driver.findElement(By.name('postcode')).sendKeys('2007');
         driver.findElement(By.name('state')).sendKeys('NSW');
@@ -68,7 +68,7 @@ test.describe('Australian online form', function() {
         var driver = new webdriver.Builder()
             .forBrowser('chrome')
             .build();
-        driver.get('localhost:9000');
+        driver.get(URL);
         driver.findElement(By.name('suburb')).sendKeys('Broadway');
         driver.findElement(By.name('postcode')).sendKeys('2007');
         driver.findElement(By.name('state')).sendKeys('NSW');
@@ -82,7 +82,7 @@ test.describe('Australian online form', function() {
         var driver = new webdriver.Builder()
             .forBrowser('chrome')
             .build();
-        driver.get('localhost:9000');
+        driver.get(URL);
         driver.findElement(By.name('suburb')).sendKeys('Sydney');
         driver.findElement(By.name('postcode')).sendKeys('2007');
         driver.findElement(By.name('state')).sendKeys('NSW');
@@ -96,7 +96,7 @@ test.describe('Australian online form', function() {
         var driver = new webdriver.Builder()
             .forBrowser('chrome')
             .build();
-        driver.get('localhost:9000');
+        driver.get(URL);
         driver.findElement(By.name('suburb')).sendKeys('Ferntree Gully');
         driver.findElement(By.name('postcode')).sendKeys('3156');
         driver.findElement(By.name('state')).sendKeys('VIC');
@@ -110,7 +110,7 @@ test.describe('Australian online form', function() {
         var driver = new webdriver.Builder()
             .forBrowser('chrome')
             .build();
-        driver.get('localhost:9000');
+        driver.get(URL);
         driver.findElement(By.name('suburb')).sendKeys('Ferntree Gully');
         driver.findElement(By.name('postcode')).sendKeys('3156');
         driver.findElement(By.name('state')).sendKeys('TAS');
