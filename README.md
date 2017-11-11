@@ -11,6 +11,7 @@
 ### Build js in dev mode and start dev server
 
 ```console
+    $ npm install nodemon -g
     $ npm start
 ```
 ### Start webpack in dev mode and watch files
@@ -28,7 +29,7 @@
 
 ### Selenium tests
 
-#### install mocha and run
+#### install mocha and run selenium script
 
 ```console
     $ npm install mocha -g
@@ -36,11 +37,13 @@
 ```
 
 
-### Future improvements / TODOS
+## Future improvements / TODOS
 
 * The api requests are made with CORS Anywhere, an endpoint for fetching the data from the express server has been made. Consider making this the primary choice?
 
 * If going with the express endpoint solution for CORS, caching the results for future use will be necessary
+
+* How do we validate streetname? 
 
 * Better validation feedback on wrong input formats
 

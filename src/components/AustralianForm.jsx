@@ -10,7 +10,8 @@ export default class AustralianForm extends React.Component {
             inputs: {
                 state: '',
                 postcode: '',
-                suburb: ''
+                suburb: '',
+                street: ''
             },
             address: {},
             errorMessage: '',
@@ -26,7 +27,8 @@ export default class AustralianForm extends React.Component {
 
     isValid = () => validation.postcode(this.state.inputs.postcode)
                  && validation.notEmpty(this.state.inputs.suburb)
-                 && validation.notEmpty(this.state.inputs.state);
+                 && validation.notEmpty(this.state.inputs.state)
+                 && validation.notEmpty(this.state.inputs.street);
 
     findAddress = (e) => {
         e.preventDefault();
@@ -100,6 +102,10 @@ export default class AustralianForm extends React.Component {
                 <div className="row">
                     <div className="col-md-6">
                         <form className="main-form mx-auto  " onSubmit={this.findAddress}>
+                            <div className="form-group">
+                                <label htmlFor="Street">Street name</label>
+                                <input type="text" name="street" value={this.state.inputs.street} onChange={this.handleInputChange} className="form-control" id="Street" placeholder="63 Fletcher street"/>
+                            </div>
                             <div className="form-group">
                                 <label htmlFor="Suburb">Suburb</label>
                                 <input type="text" name="suburb" value={this.state.inputs.suburb} onChange={this.handleInputChange} className="form-control" id="Suburb" placeholder="Tamarama"/>
