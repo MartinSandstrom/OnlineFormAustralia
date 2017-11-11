@@ -2,8 +2,8 @@ import React from 'react';
 
 export const AddressViewer = props => {
     return (
-        <div name="sel-address-view" className={`alert alert-success ${props.address.id ? '' : 'hidden'}`} role="alert">
-            <h2>The address was found:</h2>
+        <div name="sel-address-view" className="alert alert-success" role="alert">
+            <h2>The address was found</h2>
             <div>
                 <p>
                     <strong>Category: </strong>{props.address.category}

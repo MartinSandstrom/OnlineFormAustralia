@@ -102,15 +102,15 @@ export default class AustralianForm extends React.Component {
                         <form className="main-form mx-auto  " onSubmit={this.findAddress}>
                             <div className="form-group">
                                 <label htmlFor="Suburb">Suburb</label>
-                                <input type="text" name="suburb" value={this.state.inputs.suburb} onChange={this.handleInputChange} className="form-control" id="Suburb"/>
+                                <input type="text" name="suburb" value={this.state.inputs.suburb} onChange={this.handleInputChange} className="form-control" id="Suburb" placeholder="Tamarama"/>
                             </div>
                             <div className="form-group">
                                 <label htmlFor="Postcode">Postcode</label>
-                                <input type="number" name="postcode" value={this.state.inputs.postcode} onChange={this.handleInputChange} className="form-control" id="Postcode"/>
+                                <input type="number" name="postcode" value={this.state.inputs.postcode} onChange={this.handleInputChange} className="form-control" id="Postcode"  placeholder="2026"/>
                             </div>
                             <div className="form-group">
                                 <label htmlFor="State">State</label>
-                                <input type="text" name="state" value={this.state.inputs.state} onChange={this.handleInputChange} className="form-control" id="State"/>
+                                <input type="text" name="state" value={this.state.inputs.state} onChange={this.handleInputChange} className="form-control" id="State"  placeholder="NSW"/>
                             </div>
                             {this.renderErrorAlert()}
                             <button name="submit" type="submit" className="btn btn-primary">Validate</button>
