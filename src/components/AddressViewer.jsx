@@ -12,11 +12,14 @@ export const AddressViewer = props => {
                     <strong>Location: </strong>{props.address.location}
                 </p>
                 <p>
-                    <strong>Postcode: </strong>{props.address.postcode}</p>
+                    <strong>Postcode: </strong>{props.address.postcode}
+                </p>
                 <p>
-                    <strong>State: </strong>{props.address.state}</p>
+                    <strong>State: </strong>{props.address.state}
+                </p>
                 <p>
-                    <strong>Id: </strong>{props.address.id}</p>
+                    <strong>Id: </strong>{props.address.id}
+                </p>
             </div>
         </div>
     )

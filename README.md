@@ -43,7 +43,9 @@
 
 * If going with the express endpoint solution for CORS, caching the results for future use will be necessary
 
-* How do we validate streetname? 
+* How do we validate street name? 
+
+* Better client validation for input fields
 
 * Better validation feedback on wrong input formats
 
@@ -52,5 +54,3 @@
 * Un-css/remove bootstrap for faster loading time
 
 * Refactor dataService to something more explanatory once more than one service is in place
-
-* Better client validation for input fields

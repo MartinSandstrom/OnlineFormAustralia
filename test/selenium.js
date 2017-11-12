@@ -13,6 +13,7 @@ test.describe('Australian online form', function() {
             .forBrowser('chrome')
             .build();
         driver.get(URL);
+        driver.findElement(By.name('street')).sendKeys('63 Fletcher street');
         driver.findElement(By.name('suburb')).sendKeys('Tamarama');
         driver.findElement(By.name('postcode')).sendKeys('2026');
         driver.findElement(By.name('state')).sendKeys('NSW');

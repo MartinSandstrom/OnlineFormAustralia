@@ -27,8 +27,7 @@ export default class AustralianForm extends React.Component {
 
     isValid = () => validation.postcode(this.state.inputs.postcode)
                  && validation.notEmpty(this.state.inputs.suburb)
-                 && validation.notEmpty(this.state.inputs.state)
-                 && validation.notEmpty(this.state.inputs.street);
+                 && validation.notEmpty(this.state.inputs.state);
 
     findAddress = (e) => {
         e.preventDefault();
@@ -57,7 +56,7 @@ export default class AustralianForm extends React.Component {
             let locality = response.data.localities.locality;
             let postcode = this.state.inputs.postcode;
             let suburb = this.state.inputs.suburb;
-            address = locality.find((a) =>  a.location.toLowerCase() === suburb.toLowerCase());
+            address = locality.find((a) =>  a.location.toLowerCase() === suburb.toLowerCase() && postcode == a.postcode);
         } else {
             address = response.data.localities.locality;
         }
