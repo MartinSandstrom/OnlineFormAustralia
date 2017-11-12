@@ -12,6 +12,7 @@
 
 ```console
     $ npm install nodemon -g
+    $ npm install webpack -g
     $ npm start
 ```
 ### Start webpack in dev mode and watch files
@@ -43,7 +44,7 @@
 
 * If going with the express endpoint solution for CORS, caching the results for future use will be necessary
 
-* How do we validate street name? 
+* How do we validate street name?
 
 * Better client validation for input fields
 
