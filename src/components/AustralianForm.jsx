@@ -64,10 +64,8 @@ export default class AustralianForm extends React.Component {
             address = locality;
         }
         if (address.id) {
-            console.log('inne?');
             this.setState({address});
         } else {
-            console.log('ute?');
             this.handleNotFoundAddress();
         }
     }
