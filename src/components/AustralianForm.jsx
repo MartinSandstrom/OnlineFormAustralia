@@ -38,29 +38,36 @@ export default class AustralianForm extends React.Component {
         this.resetForNewSearch();
         this.setState({isLoading: true});
 
-        let query = this.state.inputs.suburb + ' ' + this.state.inputs.postcode;
+        let query = this.state.inputs.suburb;
         let state = this.state.inputs.state;
         DataService.getData(query, state).then(this.correctResults).catch(this.handleError);
     }
 
     resetForNewSearch = () => this.setState({address: {}, errorMessage: ''});
 
+    handleNotFoundAddress = () => this.setState({errorMessage: 'Could not find the address...'});
+
     correctResults = (response) => {
         this.setState({isLoading: false});
         if (!response.data.localities) {
-            this.setState({errorMessage: 'Could not find the address...'});
+            this.handleNotFoundAddress();
             return;
         }
         let address = {};
-        if(response.data.localities.locality.length > 0) {
-            let locality = response.data.localities.locality;
-            let postcode = this.state.inputs.postcode;
-            let suburb = this.state.inputs.suburb;
+        let locality = response.data.localities.locality;
+        let postcode = this.state.inputs.postcode;
+        let suburb = this.state.inputs.suburb;
+
+        if (locality.length > 0) {
             address = locality.find((a) =>  a.location.toLowerCase() === suburb.toLowerCase() && postcode == a.postcode);
-        } else {
-            address = response.data.localities.locality;
+        } else if(locality.postcode == postcode){
+            address = locality;
         }
-        this.setState({address});
+        if (address) {
+            this.setState({address});
+        } else {
+            this.handleNotFoundAddress();
+        }
     }
 
     handleError = (error) => this.setState({
