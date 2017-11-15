@@ -1,7 +1,8 @@
 import React from 'react';
 import {DataService} from '../dataService.js';
 import {AddressViewer} from './AddressViewer.jsx'
-import {validation} from '../validation.js'
+import {validation} from '../validation.js';
+import InputField from './InputField.jsx';
 
 export default class AustralianForm extends React.Component {
     constructor() {
@@ -108,22 +109,38 @@ export default class AustralianForm extends React.Component {
                 <div className="row">
                     <div className="col-md-6">
                         <form className="main-form mx-auto  " onSubmit={this.findAddress}>
-                            <div className="form-group">
-                                <label htmlFor="Street">Street name</label>
-                                <input type="text" name="street" value={this.state.inputs.street} onChange={this.handleInputChange} className="form-control" id="Street" placeholder="63 Fletcher street"/>
-                            </div>
-                            <div className="form-group">
-                                <label htmlFor="Suburb">Suburb</label>
-                                <input type="text" name="suburb" value={this.state.inputs.suburb} onChange={this.handleInputChange} className="form-control" id="Suburb" placeholder="Tamarama"/>
-                            </div>
-                            <div className="form-group">
-                                <label htmlFor="Postcode">Postcode</label>
-                                <input type="number" name="postcode" value={this.state.inputs.postcode} onChange={this.handleInputChange} className="form-control" id="Postcode"  placeholder="2026"/>
-                            </div>
-                            <div className="form-group">
-                                <label htmlFor="State">State</label>
-                                <input type="text" name="state" value={this.state.inputs.state} onChange={this.handleInputChange} className="form-control" id="State"  placeholder="NSW"/>
-                            </div>
+                            <InputField id="Street"
+                                pladeholder="63 Fletcher street"
+                                name="street"
+                                handleInputChange={this.handleInputChange}
+                                value={this.state.inputs.street}
+                                type="text"
+                                title="Street Name">
+                            </InputField>
+                            <InputField id="Suburb"
+                                pladeholder="Tamarama"
+                                name="suburb"
+                                handleInputChange={this.handleInputChange}
+                                value={this.state.inputs.suburb}
+                                type="text"
+                                title="Suburb">
+                            </InputField>
+                            <InputField id="Postcode"
+                                pladeholder="2026"
+                                name="postcode"
+                                handleInputChange={this.handleInputChange}
+                                value={this.state.inputs.postcode}
+                                type="number"
+                                title="Postcode">
+                            </InputField>
+                            <InputField id="State"
+                                pladeholder="NSW"
+                                name="state"
+                                handleInputChange={this.handleInputChange}
+                                value={this.state.inputs.state}
+                                type="text"
+                                title="State">
+                            </InputField>
                             {this.renderErrorAlert()}
                             <button name="submit" type="submit" className="btn btn-primary">Validate</button>
                             {this.renderLoader()}
