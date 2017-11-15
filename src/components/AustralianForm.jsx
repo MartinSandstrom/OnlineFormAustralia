@@ -110,7 +110,7 @@ export default class AustralianForm extends React.Component {
                     <div className="col-md-6">
                         <form className="main-form mx-auto  " onSubmit={this.findAddress}>
                             <InputField id="Street"
-                                pladeholder="63 Fletcher street"
+                                placeholder="63 Fletcher street"
                                 name="street"
                                 handleInputChange={this.handleInputChange}
                                 value={this.state.inputs.street}
@@ -118,7 +118,7 @@ export default class AustralianForm extends React.Component {
                                 title="Street Name">
                             </InputField>
                             <InputField id="Suburb"
-                                pladeholder="Tamarama"
+                                placeholder="Tamarama"
                                 name="suburb"
                                 handleInputChange={this.handleInputChange}
                                 value={this.state.inputs.suburb}
@@ -126,7 +126,7 @@ export default class AustralianForm extends React.Component {
                                 title="Suburb">
                             </InputField>
                             <InputField id="Postcode"
-                                pladeholder="2026"
+                                placeholder="2026"
                                 name="postcode"
                                 handleInputChange={this.handleInputChange}
                                 value={this.state.inputs.postcode}
@@ -134,7 +134,7 @@ export default class AustralianForm extends React.Component {
                                 title="Postcode">
                             </InputField>
                             <InputField id="State"
-                                pladeholder="NSW"
+                                placeholder="NSW"
                                 name="state"
                                 handleInputChange={this.handleInputChange}
                                 value={this.state.inputs.state}
