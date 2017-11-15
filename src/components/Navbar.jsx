@@ -2,10 +2,10 @@ import React from 'react';
 
 export const Navbar = props => {
     return (
-        <div>
-            <nav className="navbar navbar-expand-lg navbar-dark bg-primary fixed-top">
-                <a className="navbar-brand" href="#">Australian Online Form</a>
-            </nav>
+        <div className="navbar navbar-expand-lg fixed-top navbar-light bg-light">
+          <div className="container">
+            <a href="../" className="navbar-brand">Online form Australia</a>
+          </div>
         </div>
     )
 }

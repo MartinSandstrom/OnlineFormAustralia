@@ -63,7 +63,7 @@ export default class AustralianForm extends React.Component {
         } else if(locality.postcode == postcode){
             address = locality;
         }
-        if (address.id) {
+        if (address && address.id) {
             this.setState({address});
         } else {
             this.handleNotFoundAddress();

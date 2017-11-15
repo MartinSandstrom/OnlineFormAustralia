@@ -120,4 +120,18 @@ test.describe('Australian online form', function() {
             driver.quit();
         });
     });
+
+    test.it('Show correct not found message for a suburb with correct state, but incorrect postcode', () => {
+        var driver = new webdriver.Builder()
+            .forBrowser('chrome')
+            .build();
+        driver.get(URL);
+        driver.findElement(By.name('suburb')).sendKeys('Melbourne');
+        driver.findElement(By.name('postcode')).sendKeys('3002');
+        driver.findElement(By.name('state')).sendKeys('VIC');
+        driver.findElement(By.name('submit')).click();
+        driver.wait(until.elementLocated(By.name('sel-error-well'))).then(()=> {
+            driver.quit();
+        });
+    });
 });
